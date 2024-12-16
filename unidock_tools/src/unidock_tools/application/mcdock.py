@@ -102,8 +102,7 @@ class MultiConfDock(Base):
             self.receptor = receptor_pdbqt_file_name
             self.ad4_map_prefix = protein_grid_prefix
         else:
-            logging.error("receptor file must be PDB format!!")
-            exit(1)
+            receptor_pdbqt_file_name = receptor
 
         self.receptor = receptor
         self.mol_group = MolGroup(ligands)
@@ -210,7 +209,7 @@ class MultiConfDock(Base):
                 receptor=self.receptor, ligands=ligand_list, output_dir=output_dir,
                 center_x=self.center_x, center_y=self.center_y, center_z=self.center_z,
                 size_x=self.size_x, size_y=self.size_y, size_z=self.size_z,
-                scoring=scoring_function, ad4_map_prefix=self.ad4_map_prefix, num_modes=num_modes,
+                scoring=scoring_function, num_modes=num_modes,
                 search_mode=search_mode, exhaustiveness=exhaustiveness, max_step=max_step, 
                 seed=seed, refine_step=refine_step, energy_range=energy_range,
                 score_only=score_only, local_only=local_only,
